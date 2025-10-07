@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="style.css" />
+  <title>Invitación Agencia de Viajes</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="script.js"></script>
+</head>
+<body>
+<div class="aura-wrapper">
+  <div class="aura-border"></div>
+  <div class="background-squares"></div>  
+<div class="logo-container">
+  <img src="Imagenes/logo.png" alt="Logo">
+</div>
+
+<div class="container">
+  <h1>Generar Invitación</h1>
+  <form id="invitationForm">
+    <label for="nombre">Nombre del Cliente:</label>
+    <input type="text" id="nombre" required />
+
+    <label for="estadoCivil">Estado Civil:</label>
+    <select id="estadoCivil" required>
+      <option value="">Seleccione</option>
+      <option value="Casado">Casado</option>
+      <option value="Casada">Casada</option>
+      <option value="Soltero">Soltero</option>
+      <option value="Soltera">Soltera</option>
+      <option value="Divorciado">Divorciado</option>
+      <option value="Divorciada">Divorciada</option>
+      <option value="Unión Libre">Unión Libre</option>
+    </select>
+
+    <label for="acompanantesContainer">Acompañantes:</label>
+    <div id="acompanantesContainer"></div>
+    <button type="button" id="agregarAcompananteBtn">Agregar Acompañante</button>
+
+    <label for="mesaDescripcion">¿Número de Personas?:</label>
+    <input type="text" id="mesaDescripcion" required />
+
+    <label for="horaCita">Hora del Evento:</label>
+    <input type="time" id="horaCita" required />
+
+    <label for="diaEvento">Día del Evento:</label>
+    <input type="date" id="diaEvento" required />
+
+    <label for="celular">Número de Celular:</label>
+    <input type="tel" id="celular" required pattern="[0-9]{10}" />
+
+    <label for="codigo">Código de Acceso:</label>
+    <input type="text" id="codigo" value="SF" />
+
+    <label for="hotel">Selecciona el Hotel:</label>
+    <select id="hotel" required>
+      <option value="">Seleccione</option>
+      <option value="Fogo de Chao Insurgentes Sur">Fogo de Chao Insurgentes Sur</option>
+      <option value="fontan">Hotel Fontan Reforma</option>
+      <option value="marquis">Hotel Marquis Reforma</option>
+      <option value="hilton">Hotel Hilton</option>
+    </select>
+
+    <button type="submit">Generar Invitación</button>
+  </form>
+
+  <a id="whatsappLink" href="#" target="_blank" style="display: none;">Enviar invitación por WhatsApp</a>
+</div>

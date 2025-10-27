@@ -134,6 +134,33 @@ form select {
   box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.4);
 }
 
+/* CORRECCIÓN PARA LOS SELECT Y OPTIONS */
+form select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23DC2626' d='M6 8.825L1.175 4 2.238 2.938 6 6.7l3.763-3.762L10.825 4z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 12px;
+}
+
+form select option {
+  background-color: #1A0A0A;
+  color: var(--text-color);
+  padding: 0.8rem;
+  border: none;
+}
+
+form select:focus option:checked {
+  background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+  color: var(--text-color);
+}
+
+form select option:hover {
+  background-color: var(--secondary-color) !important;
+}
+
 form input::placeholder {
   color: rgba(255, 255, 255, 0.5);
 }

@@ -1,39 +1,61 @@
+/* ===== RESET Y CONFIGURACIÓN BASE ===== */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
+:root {
+  --primary-color: #1c2940;
+  --secondary-color: #5e9fff;
+  --accent-color: #7abaf7;
+  --danger-color: #e60606;
+  --success-color: #25D366;
+  --text-color: #1a1a1a;
+  --text-light: #ffffff;
+  --bg-color: #d4eaf0;
+  --card-bg: rgba(255, 255, 255, 0.25);
+  --border-color: rgba(0, 0, 0, 0.12);
+  --shadow: 0 8px 40px rgba(0, 0, 0, 0.25);
+  --border-radius: 18px;
+  --transition: all 0.3s ease;
+}
+
+/* ===== ESTILOS GENERALES ===== */
 body {
-  font-family: 'Segoe UI', sans-serif;
-  background-color: #d4eaf0;
-  color: #333;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
   padding: 2rem;
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
   position: relative;
+  line-height: 1.6;
 }
 
+/* ===== CONTENEDOR PRINCIPAL ===== */
 .container {
-  background: rgba(255, 255, 255, 0.25);
+  background: var(--card-bg);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(0, 0, 0, 0.12);
-  border-radius: 18px;
-  padding: 1.5rem 1rem;
-  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.25);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  padding: 2rem 1.5rem;
+  box-shadow: var(--shadow);
   width: 100%;
   max-width: 450px;
-  animation: fade-in-up 1s ease both;
+  animation: fade-in-up 0.8s ease both;
   border-image: linear-gradient(to right, rgba(0, 0, 0, 0.2), rgba(218, 165, 32, 0.25)) 1;
+  position: relative;
+  z-index: 1;
 }
 
 @keyframes fade-in-up {
   0% {
     opacity: 0;
-    transform: translateY(40px);
+    transform: translateY(30px);
   }
   100% {
     opacity: 1;
@@ -41,74 +63,119 @@ body {
   }
 }
 
+/* ===== TIPOGRAFÍA ===== */
 h1 {
   text-align: center;
   margin: 1rem 0 2rem 0;
   font-size: 1.8rem;
-  color: #1c2940;
+  color: var(--primary-color);
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+/* ===== FORMULARIO ===== */
+.form-group {
+  margin-bottom: 1.2rem;
+  position: relative;
 }
 
 form label {
   display: block;
-  margin-top: 1rem;
-  font-weight: 500;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
   font-size: 0.95rem;
-  color: #1a1a1a;
+  color: var(--primary-color);
+  transition: var(--transition);
 }
 
 form input,
 form select {
   width: 100%;
-  padding: 0.7rem;
-  margin-top: 0.3rem;
-  border: 1px solid rgba(0, 0, 0, 0.15);
-  border-radius: 10px;
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
   background: rgba(255, 255, 255, 0.9);
   font-size: 0.95rem;
-  color: #222;
-  transition: all 0.3s ease;
+  color: var(--text-color);
+  transition: var(--transition);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
 }
 
 form input:focus,
 form select:focus {
   outline: none;
-  border-color: #5e9fff;
+  border-color: var(--secondary-color);
   background-color: rgba(255, 255, 255, 0.97);
+  box-shadow: 0 0 0 3px rgba(94, 159, 255, 0.15);
 }
 
+/* ===== BOTONES ===== */
 button[type="submit"] {
   width: 100%;
-  padding: 0.9rem;
-  margin-top: 1.8rem;
+  padding: 1rem;
+  margin-top: 1.5rem;
   border: none;
-  background: linear-gradient(to right, #f50404, #8db4dd);
-  color: #1a1a1a;
+  background: linear-gradient(135deg, #f50404, #8db4dd);
+  color: var(--text-light);
   font-size: 1rem;
-  font-weight: bold;
+  font-weight: 600;
   border-radius: 12px;
   cursor: pointer;
-  transition: background 0.3s ease;
+  transition: var(--transition);
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden;
 }
 
 button[type="submit"]:hover {
-  background: linear-gradient(to right, #e60606, #7abaf7);
+  background: linear-gradient(135deg, #e60606, #7abaf7);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
 }
 
+button[type="submit"]:active {
+  transform: translateY(0);
+}
+
+button {
+  margin-top: 10px;
+  padding: 10px 15px;
+  background-color: var(--accent-color);
+  color: var(--text-light);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+button:hover {
+  background-color: var(--secondary-color);
+  transform: translateY(-1px);
+}
+
+/* ===== ENLACE WHATSAPP ===== */
 #whatsappLink {
   display: block;
-  margin-top: 1rem;
+  margin-top: 1.5rem;
   text-align: center;
-  font-weight: bold;
-  color: #25D366;
+  font-weight: 600;
+  color: var(--success-color);
   text-decoration: none;
   font-size: 1rem;
+  padding: 0.5rem;
+  border-radius: 8px;
+  transition: var(--transition);
+  background: rgba(37, 211, 102, 0.1);
 }
 
 #whatsappLink:hover {
-  text-decoration: underline;
+  text-decoration: none;
+  background: rgba(37, 211, 102, 0.2);
+  transform: translateY(-1px);
 }
 
+/* ===== FONDO DECORATIVO ===== */
 .background-squares {
   position: fixed;
   top: 0;
@@ -117,6 +184,7 @@ button[type="submit"]:hover {
   height: 100%;
   z-index: -1;
   overflow: hidden;
+  pointer-events: none;
 }
 
 .background-squares::before,
@@ -128,49 +196,50 @@ button[type="submit"]:hover {
   background-image: 
     repeating-linear-gradient(
       0deg,
-      rgba(0, 0, 0, 0.05) 0px,
-      rgba(255, 255, 255, 0.05) 2px,
+      rgba(0, 0, 0, 0.03) 0px,
+      rgba(255, 255, 255, 0.03) 2px,
       transparent 2px,
       transparent 50px
     ),
     repeating-linear-gradient(
       90deg,
-      rgba(0, 0, 0, 0.05) 0px,
-      rgba(255, 255, 255, 0.05) 2px,
+      rgba(0, 0, 0, 0.03) 0px,
+      rgba(255, 255, 255, 0.03) 2px,
       transparent 2px,
       transparent 50px
     );
-  animation: squaresFade 10s ease-in-out infinite alternate;
+  animation: squaresFade 15s ease-in-out infinite alternate;
 }
 
 @keyframes squaresFade {
   0% {
-    opacity: 0.1;
-    transform: scale(1);
+    opacity: 0.08;
+    transform: scale(1) rotate(0deg);
   }
   100% {
-    opacity: 0.3;
-    transform: scale(1.05);
+    opacity: 0.2;
+    transform: scale(1.05) rotate(1deg);
   }
 }
 
+/* ===== LOGO ===== */
 .logo-container {
   position: fixed;
   top: 20px;
   left: 20px;
   z-index: 10;
   max-width: 40%;
-  transition: all 0.3s ease;
+  transition: var(--transition);
 }
 
 .logo-container img {
   width: 100%;
   height: auto;
-  max-width: 250px; 
+  max-width: 250px;
   border: 2px solid rgba(218, 165, 32, 0.6);
   border-radius: 12px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: var(--transition);
 }
 
 .logo-container img:hover {
@@ -181,55 +250,147 @@ button[type="submit"]:hover {
 .logo-tagline {
   margin-top: 0.4rem;
   text-align: center;
-  font-weight: bold;
-  color: #1c2940;
+  font-weight: 600;
+  color: var(--primary-color);
   font-size: 1rem;
   letter-spacing: 0.5px;
 }
 
-/* ==== ADAPTACIÓN MÓVIL ==== */
-@media (max-width: 600px) {
-  body {
-    align-items: flex-start;
-    padding-top: 1.5rem;
-  }
-
-  .logo-container {
-    display: none; /* ← Esto oculta el logo en móviles */
-  }
-
-  form label {
-    font-size: 0.9rem;
-  }
-
-  form input,
-  form select {
-    font-size: 0.9rem;
-    padding: 0.6rem;
-  }
-
-  button[type="submit"] {
-    font-size: 0.95rem;
-    padding: 0.8rem;
-  }
-}
-
-
-button {
-  margin-top: 10px;
-  padding: 10px 15px;
-  background-color: #73b1f3;
-  color: rgb(0, 0, 0);
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: #7dafe6;
-}
-
+/* ===== CAMPOS ESPECIALES ===== */
 .acompanante-input {
   margin-top: 5px;
   display: block;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+
+/* Tablets */
+@media (max-width: 1024px) {
+  body {
+    padding: 1.5rem;
+  }
+  
+  .container {
+    padding: 1.8rem 1.3rem;
+  }
+  
+  .logo-container {
+    max-width: 35%;
+  }
+}
+
+/* Móviles grandes */
+@media (max-width: 768px) {
+  body {
+    padding: 1rem;
+    align-items: flex-start;
+    padding-top: 1.5rem;
+  }
+  
+  .container {
+    padding: 1.5rem 1.2rem;
+    max-width: 100%;
+  }
+  
+  h1 {
+    font-size: 1.6rem;
+    margin: 0.5rem 0 1.5rem 0;
+  }
+  
+  .logo-container {
+    position: relative;
+    top: auto;
+    left: auto;
+    max-width: 200px;
+    margin: 0 auto 1.5rem;
+    display: block;
+  }
+  
+  .logo-container img {
+    max-width: 100%;
+  }
+}
+
+/* Móviles pequeños */
+@media (max-width: 480px) {
+  body {
+    padding: 0.8rem;
+  }
+  
+  .container {
+    padding: 1.3rem 1rem;
+    border-radius: 14px;
+  }
+  
+  h1 {
+    font-size: 1.4rem;
+  }
+  
+  form label {
+    font-size: 0.9rem;
+  }
+  
+  form input,
+  form select {
+    font-size: 0.9rem;
+    padding: 0.75rem;
+    border-radius: 10px;
+  }
+  
+  button[type="submit"] {
+    font-size: 0.95rem;
+    padding: 0.9rem;
+  }
+  
+  .logo-container {
+    max-width: 180px;
+  }
+  
+  .background-squares::before,
+  .background-squares::after {
+    animation-duration: 20s;
+  }
+}
+
+/* Pantallas muy pequeñas (ej. iPhone SE) */
+@media (max-width: 320px) {
+  .container {
+    padding: 1rem 0.8rem;
+  }
+  
+  h1 {
+    font-size: 1.3rem;
+  }
+  
+  form input,
+  form select {
+    padding: 0.7rem;
+  }
+}
+
+/* Modo oscuro (opcional) */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text-color: #e0e0e0;
+    --primary-color: #e0e0e0;
+    --bg-color: #1a1a2e;
+    --card-bg: rgba(255, 255, 255, 0.1);
+    --border-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  body {
+    color: var(--text-color);
+  }
+  
+  form input,
+  form select {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-color);
+    border-color: var(--border-color);
+  }
+  
+  form input:focus,
+  form select:focus {
+    background: rgba(255, 255, 255, 0.15);
+  }
 }

@@ -86,7 +86,7 @@ document.addEventListener("DOMContentLoaded", function () {
     } else if (fondoClave === "fogo") {
       ubicacionHotel = "https://maps.app.goo.gl/LC3zgWA1BU9JGcwN9";
     } else if (fondoClave === "daikoku") {
-      ubicacionHotel = "https://maps.app.goo.gl/TU_URL_DAIKOKU_AQUI"; // Agrega la URL de Daikoku aquí
+      ubicacionHotel = "https://maps.app.goo.gl/rh7fQWzjxPjd8ptHA"; 
     }
 
     doc.setFont("helvetica", "bold");
